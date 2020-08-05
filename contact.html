@@ -11,12 +11,14 @@ Author URL: http://w3layouts.com
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>ajithrb</title>
+  
 
   <!-- google fonts -->
   <link href="//fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="assets/css/style-starter.css">
+  
 
 </head>
 
@@ -67,12 +69,12 @@ Author URL: http://w3layouts.com
 					<a href="https://www.twitter.com/ajithrb2" class="editContent">twitter</a>
 					or <a href="https:www.linkedin.com/in/ajith-r-b-89122518b" class="editContent">linkedin</a>.</h3>
 			</div>
-			<form action="mailto:ajithrb2001@gmail.com" method="POST" class="">
+			<form  id="submit-form" action=""  >
 				<div class="main-input">
-					<input type="text"  name="w3lName" placeholder="Enter your name" class="contact-input" required="" />
-					<input type="email" name="w3lSender" placeholder="Enter your mail" class="contact-input" required="" />
-					<input type="text"  name="w3lSubject" placeholder="Subject" class="contact-input" />
-					<textarea class="contact-textarea contact-input" name="w3lMessage" placeholder="Enter your message" required=""></textarea>
+					<input type="text"  name="Name" placeholder="Enter your name" class="contact-input" required="" />
+					<input type="email" name="Sender" placeholder="Enter your mail" class="contact-input" required="" />
+					<input type="text"  name="Subject" placeholder="Subject" class="contact-input" />
+					<textarea class="contact-textarea contact-input" name="Message" placeholder="Enter your message" required=""></textarea>
 				</div>
 				<div class="text-right">
 					<button class="btn-primary btn btn-style">Send</button>
@@ -147,7 +149,7 @@ Author URL: http://w3layouts.com
   });
 </script>
 <!-- disable body scroll which navbar is in active -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- for blog carousel slider -->
 <script src="assets/js/owl.carousel.js"></script>
@@ -184,6 +186,8 @@ Author URL: http://w3layouts.com
 </script>
 <!-- //stats number counter -->
 
+
+
 <!-- jQuery-Photo-filter-lightbox-portfolio-plugin -->
 <script src="assets/js/jquery-1.7.2.js"></script>
 <script src="assets/js/jquery.quicksand.js"></script>
@@ -194,6 +198,26 @@ Author URL: http://w3layouts.com
 <!--  bootstrap js -->
 <script src="assets/js/bootstrap.min.js"></script>
 <!--  //bootstrap js -->
+
+<script>
+  $("#submit-form").submit((e)=>{
+      e.preventDefault()
+      $.ajax({
+          url:"https://script.google.com/macros/s/AKfycbxMOveuA6j5KYHxvcTD2mcWW9ME-TW883Qo-z8A5A/exec",
+          data:$("#submit-form").serialize(),
+          method:"post",
+          success:function (response){
+              alert("Form submitted successfully")
+              window.location.reload()
+              //window.location.href="https://google.com"
+          },
+          error:function (err){
+              alert("Something Error")
+
+          }
+      })
+  })
+</script>
 
 </body>
 
